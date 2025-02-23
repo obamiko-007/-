@@ -2,37 +2,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Интерактивный праздник 8 Марта</title>
+    <title>Большой праздник 8 Марта</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <header>
+        <!-- Главная страница -->
+        <section id="home" class="page active">
             <h1>С Днём 8 Марта!</h1>
-            <p>Добро пожаловать на нашу интерактивную страницу!</p>
-        </header>
-
-        <section id="game-section">
-            <h2>Найдите спрятанные объекты</h2>
-            <p>Найдите все розы и сердечки на экране.</p>
-            <div id="game-area"></div>
-            <p id="score">Найдено: 0 из 10</p>
+            <p>Добро пожаловать на нашу интерактивную площадку!</p>
+            <button onclick="goTo('game')">Начать игру</button>
         </section>
 
-        <section id="tasks-section" style="display: none;">
+        <!-- Мини-игра: Поиск объектов -->
+        <section id="game" class="page" style="display: none;">
+            <h2>Найдите все розы и сердечки</h2>
+            <div id="game-area"></div>
+            <p id="score">Найдено: 0 из 15</p>
+            <button onclick="goTo('tasks')" disabled id="next-button">Продолжить</button>
+        </section>
+
+        <!-- Задания -->
+        <section id="tasks" class="page" style="display: none;">
             <h2>Выполните задания</h2>
             <ul>
                 <li><button onclick="completeTask(1)">Кликните здесь</button></li>
-                <li><button onclick="completeTask(2)">Ответьте на вопрос</button></li>
+                <li><button onclick="openQuiz()">Ответьте на вопрос</button></li>
+                <li><button onclick="startMaze()">Пройдите лабиринт</button></li>
             </ul>
-            <p id="task-progress">Заданий выполнено: 0 из 2</p>
+            <p id="task-progress">Заданий выполнено: 0 из 3</p>
+            <button onclick="goTo('final')" disabled id="final-button">Завершить</button>
         </section>
 
-        <footer id="final-greeting" style="display: none;">
+        <!-- Финальное поздравление -->
+        <section id="final" class="page" style="display: none;">
             <h2>Поздравляем!</h2>
             <p>Вы успешно выполнили все задания и нашли все объекты!</p>
             <p>Желаем вам счастья, любви и успехов!</p>
-        </footer>
+            <a href="certificate.pdf" download>Скачать открытку</a>
+        </section>
     </div>
 
     <script src="script.js"></script>
