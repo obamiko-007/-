@@ -8,7 +8,12 @@ const objectPositions = [
     { x: 250, y: 250 },
     { x: 350, y: 150 },
     { x: 150, y: 250 },
-    { x: 450, y: 300 }
+    { x: 450, y: 300 },
+    { x: 100, y: 100 },
+    { x: 300, y: 350 },
+    { x: 200, y: 200 },
+    { x: 400, y: 250 },
+    { x: 50, y: 200 }
 ];
 
 let foundObjects = 0;
@@ -35,8 +40,8 @@ function createHiddenObjects() {
         obj.addEventListener('click', () => {
             obj.style.display = 'none';
             foundObjects++;
-            document.getElementById('score').textContent = `Найдено: ${foundObjects} из 10`;
-            if (foundObjects === 10) {
+            document.getElementById('score').textContent = `Найдено: ${foundObjects} из 15`;
+            if (foundObjects === 15) {
                 completeGame();
             }
         });
@@ -45,10 +50,16 @@ function createHiddenObjects() {
     });
 }
 
+// Переключение страниц
+function goTo(pageId) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => page.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+}
+
 // Завершение игры
 function completeGame() {
-    document.getElementById('game-section').style.display = 'none';
-    document.getElementById('tasks-section').style.display = 'block';
+    document.getElementById('next-button').disabled = false;
 }
 
 // Выполнение заданий
@@ -56,16 +67,27 @@ let completedTasks = 0;
 
 function completeTask(taskId) {
     completedTasks++;
-    document.getElementById('task-progress').textContent = `Заданий выполнено: ${completedTasks} из 2`;
-    if (completedTasks === 2) {
-        showFinalGreeting();
+    document.getElementById('task-progress').textContent = `Заданий выполнено: ${completedTasks} из 3`;
+    if (completedTasks === 3) {
+        document.getElementById('final-button').disabled = false;
     }
 }
 
-// Показ финального поздравления
-function showFinalGreeting() {
-    document.getElementById('tasks-section').style.display = 'none';
-    document.getElementById('final-greeting').style.display = 'block';
+// Квиз
+function openQuiz() {
+    const answer = prompt("Какой цвет у роз? (красный/розовый)");
+    if (answer.toLowerCase() === "красный" || answer.toLowerCase() === "розовый") {
+        alert("Правильно!");
+        completeTask(2);
+    } else {
+        alert("Попробуйте ещё раз!");
+    }
+}
+
+// Лабиринт
+function startMaze() {
+    alert("Лабиринт временно недоступен. Просто нажмите 'OK' для завершения.");
+    completeTask(3);
 }
 
 // Инициализация игры
