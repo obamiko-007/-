@@ -1,1 +1,68 @@
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fdeff9;
+    color: #5c0b56;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+#game-area {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-color: #fffaf0;
+    border: 2px dashed #ff69b4;
+    overflow: hidden;
+}
+
+.hidden-object {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeInOut 3s infinite;
+}
+
+.hidden-object img {
+    width: 100%;
+    height: 100%;
+}
+
+#score, #task-progress {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+footer {
+    margin-top: 20px;
+}
+
+/* Анимации */
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
