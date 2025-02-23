@@ -1,1 +1,40 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерактивный праздник 8 Марта</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>С Днём 8 Марта!</h1>
+            <p>Добро пожаловать на нашу интерактивную страницу!</p>
+        </header>
 
+        <section id="game-section">
+            <h2>Найдите спрятанные объекты</h2>
+            <p>Найдите все розы и сердечки на экране.</p>
+            <div id="game-area"></div>
+            <p id="score">Найдено: 0 из 10</p>
+        </section>
+
+        <section id="tasks-section" style="display: none;">
+            <h2>Выполните задания</h2>
+            <ul>
+                <li><button onclick="completeTask(1)">Кликните здесь</button></li>
+                <li><button onclick="completeTask(2)">Ответьте на вопрос</button></li>
+            </ul>
+            <p id="task-progress">Заданий выполнено: 0 из 2</p>
+        </section>
+
+        <footer id="final-greeting" style="display: none;">
+            <h2>Поздравляем!</h2>
+            <p>Вы успешно выполнили все задания и нашли все объекты!</p>
+            <p>Желаем вам счастья, любви и успехов!</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
